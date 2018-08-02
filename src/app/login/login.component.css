@@ -1,0 +1,28 @@
+.alert {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.alert.alert-info {
+  color: #607D8B;
+}
+
+.alert.alert-error {
+  color: red;
+}
+
+.help-block {
+  width: 200px;
+  color: white;
+  background-color: gray;
+}
+
+.form-control {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-top: 20px;
+}
