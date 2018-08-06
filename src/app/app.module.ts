@@ -13,6 +13,7 @@ import {HeroSearchComponent} from './hero-search/hero-search.component';
 import {MessagesComponent} from './messages/messages.component';
 import {LoginComponent} from './login/login.component';
 import {AuthenticationInterceptor} from './authentication.interceptor';
+import {HasRoleDirective} from './has-role.directive';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {AuthenticationInterceptor} from './authentication.interceptor';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    LoginComponent
+    LoginComponent,
+    HasRoleDirective
   ],
   providers: [
     [{provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}]

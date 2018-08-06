@@ -19,7 +19,7 @@ export class AuthenticationService {
       tap(response => {
         if (response && response.token) {
           // login successful, store username and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify({username: username, token: response.token}));
+          localStorage.setItem('currentUser', JSON.stringify({username: username, token: response.token, authorities: response.authorities}));
           return of(true);
         } else {
           return of(false);
@@ -54,5 +54,14 @@ export class AuthenticationService {
   isLoggedIn(): boolean {
     const token: String = this.getToken();
     return token && token.length > 0;
+  }
+
+  hasRole(role: string): boolean {
+    const currentUser = this.getCurrentUser();
+    if (!currentUser) {
+      return false;
+    }
+    const authorities: string[] = currentUser.authorities;
+    return authorities.indexOf('ROLE_' + role) != -1;
   }
 }
