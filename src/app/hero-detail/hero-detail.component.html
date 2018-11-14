@@ -7,5 +7,5 @@
     </label>
   </div>
   <button (click)="goBack()">go back</button>
-  <button (click)="save()" *appHasRole="'ADMIN'">save</button>
+  <button *appHasRole="'ADMIN'" (click)="save()">save</button>
 </div>
