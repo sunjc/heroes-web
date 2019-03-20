@@ -11,9 +11,6 @@ fi
 pushd $HOME/src
 npm install
 ng build --prod --base-href=/heroes/
-echo "------------------------------------"
-ls -la
-echo "------------------------------------"
 mv dist /var/www/html/heroes
 popd
 
