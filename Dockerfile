@@ -1,7 +1,7 @@
 # heroes-web-centos7
-FROM centos:latest
+FROM centos/httpd:latest
 
-RUN yum -y update && yum -y install git && yum -y install httpd && \
+RUN yum -y update && yum -y install git && \
     curl -sL https://rpm.nodesource.com/setup_10.x | bash - && yum -y install nodejs && \
     yum -y clean all && npm install -g @angular/cli@latest
 
