@@ -14,7 +14,7 @@ ng build --prod --base-href=/heroes/
 echo "------------------------------------"
 ls -la
 echo "------------------------------------"
-mv dist/heroes /var/www/html/heroes
+mv dist /var/www/html/heroes
 popd
 
 rm -rf $HOME/src
