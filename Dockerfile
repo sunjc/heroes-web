@@ -9,7 +9,7 @@ RUN yum -y update && yum -y install git && \
 LABEL maintainer="Sun Jingchuan <jason@163.com>" \
       io.k8s.description="Heroes Web" \
       io.k8s.display-name="Heroes Web" \
-      io.openshift.expose-services="80:http" \
+      io.openshift.expose-services="8080:http" \
       io.openshift.tags="angular,heroes-web" \
       # this label tells s2i where to find its mandatory scripts(run, assemble, save-artifacts)
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
@@ -26,14 +26,15 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd /var/www/html && \
     sed -i -e "s/^User apache/User default/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf && \
-    sed -i -e "s/^Group apache/Group root/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf
+    sed -i -e "s/^Group apache/Group root/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf && \
+    sed -i -e "s/^Listen 80/Listen 8080/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf
 
 USER 10001
 WORKDIR ${APP_ROOT}
 
 ENTRYPOINT [ "uid_entrypoint" ]
 
-EXPOSE 80
+EXPOSE 8080
 
 # Inform the user how to run this image.
 # CMD ["/usr/libexec/s2i/usage"]
