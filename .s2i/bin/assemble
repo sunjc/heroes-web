@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+# move the application source
+mv /tmp/src $HOME/src
+
+# restore build artifacts
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+    mv /tmp/artifacts/* $HOME/src
+fi
+
+pushd $HOME/src
+ng build --prod --base-href=/heroes/
+mv dist/heroes /var/www/html/heroes
+popd
+
+rm -rf $HOME/src
