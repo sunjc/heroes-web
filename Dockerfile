@@ -16,7 +16,7 @@ LABEL maintainer="Sun Jingchuan <jason@163.com>" \
       io.openshift.s2i.destination="/tmp"
 
 ENV APP_ROOT=/opt/heroes
-ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
+ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT} HTTPD_MAIN_CONF_PATH=/etc/httpd/conf
 
 COPY bin ${APP_ROOT}/bin
 # Copy the S2I scripts to /usr/libexec/s2i
@@ -24,7 +24,9 @@ COPY bin ${APP_ROOT}/bin
 
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
-    chmod -R g=u ${APP_ROOT} /etc/passwd /var/www/html
+    chmod -R g=u ${APP_ROOT} /etc/passwd /var/www/html && \
+    sed -i -e "s/^User apache/User default/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf && \
+    sed -i -e "s/^Group apache/Group root/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf
 
 USER 10001
 WORKDIR ${APP_ROOT}
