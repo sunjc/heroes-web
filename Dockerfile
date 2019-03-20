@@ -25,6 +25,7 @@ COPY bin ${APP_ROOT}/bin
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd /var/www/html && \
+    chown -R root:root /run/httpd && \
     sed -i -e "s/^User apache/User default/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf && \
     sed -i -e "s/^Group apache/Group root/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf && \
     sed -i -e "s/^Listen 80/Listen 8080/" ${HTTPD_MAIN_CONF_PATH}/httpd.conf
