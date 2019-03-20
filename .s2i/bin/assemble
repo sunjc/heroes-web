@@ -11,7 +11,7 @@ fi
 pushd $HOME/src
 npm install
 ng build --prod --base-href=/heroes/
-mv $HOME/dist/heroes /var/www/html/heroes
+mv dist/heroes /var/www/html/heroes
 popd
 
 rm -rf $HOME/src
