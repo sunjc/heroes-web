@@ -1,9 +1,9 @@
 # heroes-web-centos7
 FROM centos/httpd:latest
 
-RUN yum -y update && yum -y install git && \
+RUN yum -y update && \
     curl -sL https://rpm.nodesource.com/setup_10.x | bash - && yum -y install nodejs && \
-    yum -y clean all && npm install -g @angular/cli@latest
+    yum clean all && npm install -g @angular/cli@latest
 
 # Set the labels that are used for OpenShift to describe the builder image.
 LABEL maintainer="Sun Jingchuan <jason@163.com>" \
