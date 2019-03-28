@@ -8,9 +8,12 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
     mv /tmp/artifacts/* $HOME/src
 fi
 
+# build the application artifacts
 pushd $HOME/src
 npm install
 ng build --prod --base-href=/heroes/
+
+# Install the artifacts
 mv dist /var/www/html/heroes
 popd
 

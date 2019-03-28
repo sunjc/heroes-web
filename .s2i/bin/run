@@ -1,3 +1,4 @@
 #!/bin/bash
 
+# run the application
 exec httpd -D FOREGROUND $@
