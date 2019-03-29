@@ -12,7 +12,8 @@ LABEL maintainer="Sun Jingchuan <jason@163.com>" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="angular,heroes-web" \
       # this label tells s2i where to find its mandatory scripts(run, assemble, save-artifacts)
-      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
+      # io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
+      io.openshift.s2i.scripts-url="image:///tmp/scripts" \
       io.openshift.s2i.destination="/tmp"
 
 ENV APP_ROOT=/opt/heroes
