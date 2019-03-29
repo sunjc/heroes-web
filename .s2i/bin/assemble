@@ -15,6 +15,7 @@ ng build --prod --base-href=/heroes/
 
 # Install the artifacts
 mv dist /var/www/html/heroes
+mv node_modules $HOME/node_modules
 popd
 
 rm -rf $HOME/src
