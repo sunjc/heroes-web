@@ -26,8 +26,8 @@ export class HeroService {
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(heroes => this.log('fetched heroes')),
-        catchError(this.handleError('getHeroes', []))
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
 
@@ -71,12 +71,7 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero (hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-      tap((hero: Hero) => {
-          if (hero) {
-            this.log(`added hero w/ id=${hero.id}`)
-          }
-        }
-      ),
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -106,11 +101,11 @@ export class HeroService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (response: any): Observable<T> => {
-      console.error(response.error); // log to console instead
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (errorResponse: any): Observable<T> => {
+      console.error(errorResponse.error); // log to console instead
 
-      this.log(`${operation} failed: ${response.error.message}`);
+      this.log(`${operation} failed: ${errorResponse.error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

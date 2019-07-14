@@ -4,9 +4,16 @@
 /dist
 /tmp
 /out-tsc
+# Only exists if Bazel was run
+/bazel-out
+package-lock.json
 
 # dependencies
 /node_modules
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
@@ -16,7 +23,6 @@
 *.launch
 .settings/
 *.sublime-workspace
-package-lock.json
 
 # IDE - VSCode
 .vscode/*
@@ -24,6 +30,7 @@ package-lock.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
 # misc
 /.sass-cache
