@@ -109,7 +109,11 @@ export class HeroService {
       this.log(`${operation} failed: ${errorResponse.error.message}`);
 
       // Let the app keep running by returning an empty result.
-      return of(result as T);
+      if (result) {
+        return of(result as T);
+      }
+
+      return of();
     };
   }
 
