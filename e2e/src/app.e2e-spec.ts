@@ -49,19 +49,20 @@ describe('Tutorial part 6', () => {
   beforeAll(() => browser.get(''));
 
   function getPageElts() {
-    const navElts = element.all(by.css('app-root nav a'));
+    const navElements = element.all(by.css('app-root nav a'));
 
     return {
-      navElts: navElts,
+      navElts: navElements,
 
-      appLoginHref: navElts.get(0),
+      appLoginHref: navElements.get(0),
       appLogin: element(by.css('app-root app-login')),
+      loginTitle: element(by.css('app-root app-login > div h2')),
 
-      appDashboardHref: navElts.get(1),
+      appDashboardHref: navElements.get(1),
       appDashboard: element(by.css('app-root app-dashboard')),
       topHeroes: element.all(by.css('app-root app-dashboard > div h4')),
 
-      appHeroesHref: navElts.get(2),
+      appHeroesHref: navElements.get(2),
       appHeroes: element(by.css('app-root app-heroes')),
       allHeroes: element.all(by.css('app-root app-heroes li')),
       selectedHeroSubview: element(by.css('app-root app-heroes > div:last-child')),
@@ -94,6 +95,19 @@ describe('Tutorial part 6', () => {
       expect(page.appLogin.isPresent()).toBeTruthy();
     });
 
+  });
+
+  describe('Login tests', () => {
+    beforeAll(() => browser.get(''));
+
+    it('Title should be Login', () => {
+      const page = getPageElts();
+      expect(page.loginTitle.getText()).toEqual('Login');
+    });
+
+    it('Login', () => {
+
+    });
   });
 
   describe('Dashboard tests', () => {

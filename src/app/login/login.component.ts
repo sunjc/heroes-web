@@ -5,6 +5,7 @@ import {AuthenticationService} from '../authentication.service';
 import {MessageService} from '../message.service';
 
 @Component({
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
