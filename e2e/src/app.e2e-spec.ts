@@ -5,7 +5,7 @@ import {promise} from 'selenium-webdriver';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `${expectedH1}`;
-const targetHero = {id: 15, name: 'Magneta'};
+const targetHero = {id: 5, name: 'Magneta'};
 const targetHeroDashboardIndex = 3;
 const nameSuffix = 'X';
 const newHeroName = targetHero.name + nameSuffix;
@@ -105,8 +105,15 @@ describe('Tutorial part 6', () => {
       expect(page.loginTitle.getText()).toEqual('Login');
     });
 
-    it('Login', () => {
+    it('can login', () => {
+      element(by.css('#username')).sendKeys('admin');
+      element(by.css('#password')).sendKeys('admin');
+      element(by.buttonText('Login')).click();
+    });
 
+    it('has dashboard as the active view', () => {
+      const page = getPageElts();
+      expect(page.appDashboard.isPresent()).toBeTruthy();
     });
   });
 
@@ -163,10 +170,8 @@ describe('Tutorial part 6', () => {
       expect(page.heroDetail.isPresent()).toBeTruthy('shows hero detail');
       const hero = await Hero.fromDetail(page.heroDetail);
       expect(hero.id).toEqual(targetHero.id);
-      expect(hero.name).toEqual(targetHero.name.toUpperCase());
+      expect(hero.name).toEqual(newHeroName.toUpperCase());
     });
-
-    it(`updates hero name (${newHeroName}) in details view`, updateHeroNameInDetailView);
 
     it(`shows ${newHeroName} in Heroes list`, () => {
       element(by.buttonText('save')).click();
@@ -191,11 +196,10 @@ describe('Tutorial part 6', () => {
     });
 
     it(`adds back ${targetHero.name}`, async () => {
-      const newHeroName = 'Alice';
       const heroesBefore = await toHeroArray(getPageElts().allHeroes);
       const numHeroes = heroesBefore.length;
 
-      element(by.css('input')).sendKeys(newHeroName);
+      element(by.css('input')).sendKeys(targetHero.name);
       element(by.buttonText('add')).click();
 
       const page = getPageElts();
@@ -205,7 +209,7 @@ describe('Tutorial part 6', () => {
       expect(heroesAfter.slice(0, numHeroes)).toEqual(heroesBefore, 'Old heroes are still there');
 
       const maxId = heroesBefore[heroesBefore.length - 1].id;
-      expect(heroesAfter[numHeroes]).toEqual({id: maxId + 1, name: newHeroName});
+      expect(heroesAfter[numHeroes]).toEqual({id: maxId + 1, name: targetHero.name});
     });
 
     it('displays correctly styled buttons', async () => {
@@ -266,7 +270,6 @@ describe('Tutorial part 6', () => {
       const page = getPageElts();
       expect(page.heroDetail.isPresent()).toBeTruthy('shows hero detail');
       const hero2 = await Hero.fromDetail(page.heroDetail);
-      expect(hero2.id).toEqual(targetHero.id);
       expect(hero2.name).toEqual(targetHero.name.toUpperCase());
     });
   });
