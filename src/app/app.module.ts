@@ -14,13 +14,21 @@ import {MessagesComponent} from './messages/messages.component';
 import {LoginComponent} from './login/login.component';
 import {AuthenticationInterceptor} from './authentication.interceptor';
 import {HasRoleDirective} from './has-role.directive';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {registerLocaleData} from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgZorroAntdModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -33,7 +41,10 @@ import {HasRoleDirective} from './has-role.directive';
     HasRoleDirective
   ],
   providers: [
-    [{provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}]
+    [
+      {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true},
+      {provide: NZ_I18N, useValue: en_US}
+    ]
   ],
   bootstrap: [AppComponent]
 })

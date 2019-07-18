@@ -1,28 +1,11 @@
-.alert {
-  width: 200px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.login-form {
+  max-width: 300px;
 }
 
-.alert.alert-info {
-  color: #607D8B;
+.login-form-forgot {
+  float: right;
 }
 
-.alert.alert-error {
-  color: red;
-}
-
-.help-block {
-  width: 200px;
-  color: white;
-  background-color: gray;
-}
-
-.form-control {
-  width: 200px;
-  margin-bottom: 10px;
-}
-
-.btn {
-  margin-top: 20px;
+.login-form-button {
+  width: 100%;
 }
