@@ -56,7 +56,7 @@ describe('Tutorial part 6', () => {
 
       appLoginHref: navElements.get(0),
       appLogin: element(by.css('app-root app-login')),
-      loginTitle: element(by.css('app-root app-login > div h2')),
+      loginTitle: element(by.css('app-root app-login > h2')),
 
       appDashboardHref: navElements.get(1),
       appDashboard: element(by.css('app-root app-dashboard')),
