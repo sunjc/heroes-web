@@ -68,6 +68,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular.io-example:build:production"
+            },
+            "zh": {
+              "browserTarget": "angular.io-example:build:zh"
             }
           }
         },
