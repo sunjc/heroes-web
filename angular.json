@@ -56,7 +56,9 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "outputPath": "dist/en/",
+              "baseHref": "/en/"
             },
             "production-zh": {
               "fileReplacements": [
@@ -74,7 +76,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "dist/heroes-web-zh/",
+              "outputPath": "dist/zh/",
+              "baseHref": "/zh/",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",
@@ -82,7 +85,6 @@
             },
             "zh": {
               "aot": true,
-              "outputPath": "dist/heroes-web-zh/",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",

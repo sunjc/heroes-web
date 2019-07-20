@@ -1,6 +1,6 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
+  <h2>{{hero.name | uppercase}} <ng-container i18n="@@detail">Details</ng-container></h2>
+  <div><span>ID: </span>{{hero.id}}</div>
   <div>
     <label>
       <ng-container i18n="@@name">name:</ng-container>
