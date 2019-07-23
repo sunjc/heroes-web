@@ -8,7 +8,7 @@ import {en_US, NzI18nService, zh_CN} from 'ng-zorro-antd';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  currentLanguage: string;
+  selectedLanguage: string;
   currentDate: Date = new Date();
 
   supportLanguages = [
@@ -17,12 +17,16 @@ export class AppComponent {
   ];
 
   constructor(@Inject(LOCALE_ID) private localeId: string, private i18n: NzI18nService) {
-    if (localeId.startsWith('en')) {
-      this.currentLanguage = 'en';
+    if (localeId === 'en-US') {
+      this.selectedLanguage = 'en';
       this.i18n.setLocale(en_US);
     } else {
-      this.currentLanguage = 'zh';
+      this.selectedLanguage = 'zh';
       this.i18n.setLocale(zh_CN);
     }
+  }
+
+  switchLanguage() {
+    window.location.href = `/${this.selectedLanguage}`;
   }
 }

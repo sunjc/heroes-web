@@ -2,11 +2,9 @@
   <div nz-col nzSpan="6"><h1>{{title}}</h1></div>
   <div nz-col nzSpan="2">{{currentDate | date}}</div>
   <div nz-col nzSpan="4">
-    <ng-container *ngFor="let language of supportLanguages">
-      <a href="/{{language.code}}/">
-        <button nz-button [nzType]="language.code === currentLanguage ? 'primary' : 'default'">{{language.label}}</button>
-      </a>
-    </ng-container>
+    <nz-radio-group [(ngModel)]="selectedLanguage" (ngModelChange)="switchLanguage()" [nzButtonStyle]="'solid'">
+      <label nz-radio-button [nzValue]="language.code" *ngFor="let language of supportLanguages">{{ language.label }}</label>
+    </nz-radio-group>
   </div>
 </div>
 <nav>
