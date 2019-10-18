@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {environment} from '../environments/environment';
+import {throwError} from 'rxjs/internal/observable/throwError';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,12 +15,12 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
   }
 
-  login(username: string, password: string): Observable<boolean> {
-    return this.http.post<any>(`${environment.apiUrl}/api/auth`, JSON.stringify({username: username, password: password}), httpOptions).pipe(
+  login(name: string, pass: string): Observable<boolean> {
+    return this.http.post<any>(`${environment.apiUrl}/api/auth`, JSON.stringify({username: name, password: pass}), httpOptions).pipe(
       tap(response => {
         if (response && response.token) {
           // login successful, store username and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify({username: username, token: response.token, authorities: response.authorities}));
+          localStorage.setItem('currentUser', JSON.stringify({username: name, token: response.token, tokenParsed: this.decodeToken(response.token)}));
           return of(true);
         } else {
           return of(false);
@@ -27,7 +28,7 @@ export class AuthenticationService {
       }),
       catchError((err) => {
         console.error(err);
-        return of(false)
+        return of(false);
       })
     );
   }
@@ -52,7 +53,7 @@ export class AuthenticationService {
   }
 
   isLoggedIn(): boolean {
-    const token: String = this.getToken();
+    const token: string = this.getToken();
     return token && token.length > 0;
   }
 
@@ -61,7 +62,33 @@ export class AuthenticationService {
     if (!currentUser) {
       return false;
     }
-    const authorities: string[] = currentUser.authorities;
-    return authorities.indexOf('ROLE_' + role) != -1;
+    const authorities: string[] = this.getAuthorities(currentUser.tokenParsed);
+    return authorities.indexOf('ROLE_' + role) !== -1;
+  }
+
+  decodeToken(token: string): string {
+    let payload: string = token.split('.')[1];
+
+    payload = payload.replace('/-/g', '+').replace('/_/g', '/');
+    switch (payload.length % 4) {
+      case 0:
+        break;
+      case 2:
+        payload += '==';
+        break;
+      case 3:
+        payload += '=';
+        break;
+      default:
+        throwError('Invalid token');
+    }
+
+    payload = (payload + '===').slice(0, payload.length + (payload.length % 4));
+
+    return decodeURIComponent(escape(atob(payload)));
+  }
+
+  getAuthorities(tokenParsed: string): string[] {
+    return JSON.parse(tokenParsed).authorities;
   }
 }
