@@ -1,6 +1,6 @@
 {
   "name": "angular-io-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Example project from an angular.io guide.",
   "scripts": {
     "ng": "ng",
@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
     "ng-zorro-antd": "^8.4.0",
+    "keycloak-js": "7.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

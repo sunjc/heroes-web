@@ -1,6 +1,6 @@
 <h2 i18n="@@myHeroes">My Heroes</h2>
 
-<div *appHasRole="'ADMIN'">
+<div *appHasRole="'admin'">
   <label>
     <ng-container i18n="@@heroName">Hero name:</ng-container>
     <input #heroName/>
@@ -16,6 +16,6 @@
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
-    <button *appHasRole="'ADMIN'" class="delete" i18n-title="@@deleteHero" title="delete hero" (click)="delete(hero)">x</button>
+    <button *appHasRole="'admin'" class="delete" i18n-title="@@deleteHero" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
