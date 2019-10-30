@@ -6,7 +6,7 @@ export const environment = {
       url: 'https://sso.itrunner.org/auth',
       realm: 'heroes',
       clientId: 'heroes',
-      sslRequired: 'external'
+      sslRequired: 'all'
     },
     initOptions: {
       onLoad: 'login-required',
