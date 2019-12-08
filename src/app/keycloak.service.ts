@@ -53,13 +53,13 @@ export class KeycloakService {
       this.keycloak = Keycloak(config);
 
       this.keycloak.init(initOptions)
-        .then(async authenticated => {
+        .success(async authenticated => {
           if (authenticated && this.loadUserProfileAtStartUp) {
             await this.loadUserProfile();
           }
           resolve(authenticated);
         })
-        .catch((kcError) => {
+        .error((kcError) => {
           let msg = 'An error happened during Keycloak initialization.';
           if (kcError) {
             msg = msg.concat(`\nAdapter error details:\nError: ${kcError.error}\nDescription: ${kcError.error_description}`
@@ -109,13 +109,13 @@ export class KeycloakService {
   login(options: Keycloak.KeycloakLoginOptions = {}): Promise<void> {
     return new Promise((resolve, reject) => {
       this.keycloak.login(options)
-        .then(async () => {
+        .success(async () => {
           if (this.loadUserProfileAtStartUp) {
             await this.loadUserProfile();
           }
           resolve();
         })
-        .catch(() => reject(`An error happened during the login.`));
+        .error(() => reject(`An error happened during the login.`));
     });
   }
 
@@ -130,11 +130,11 @@ export class KeycloakService {
       const options: any = {redirectUri};
 
       this.keycloak.logout(options)
-        .then(() => {
+        .success(() => {
           this.userProfile = undefined;
           resolve();
         })
-        .catch(() => reject('An error happened during logout.'));
+        .error(() => reject('An error happened during logout.'));
     });
   }
 
@@ -206,10 +206,10 @@ export class KeycloakService {
       }
 
       this.keycloak.updateToken(minValidity)
-        .then(refreshed => {
+        .success(refreshed => {
           resolve(refreshed);
         })
-        .catch(() => reject('Failed to refresh the token, or the session is expired'));
+        .error(() => reject('Failed to refresh the token, or the session is expired'));
     });
   }
 
@@ -253,11 +253,11 @@ export class KeycloakService {
       }
 
       this.keycloak.loadUserProfile()
-        .then(result => {
+        .success(result => {
           this.userProfile = result as Keycloak.KeycloakProfile;
           resolve(this.userProfile);
         })
-        .catch(() => reject('The user profile could not be loaded.'));
+        .error(() => reject('The user profile could not be loaded.'));
     });
   }
 

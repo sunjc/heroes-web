@@ -1,4 +1,4 @@
-import {KeycloakInitOptions} from 'keycloak-js';
+import {KeycloakConfig, KeycloakInitOptions} from 'keycloak-js';
 
 /**
  * HTTP Methods
@@ -47,7 +47,7 @@ export interface KeycloakOptions {
    * This is useful if you have different configurations for production, stage and development environments.
    * Hint: Make use of Angular environment configuration.
    */
-  config?: string | {};
+  config?: KeycloakConfig | string;
   /**
    * Options to initialize the adapter.
    */

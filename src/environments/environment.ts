@@ -9,13 +9,11 @@ export const environment = {
     config: {
       url: 'http://localhost:8090/auth',
       realm: 'heroes',
-      clientId: 'heroes',
-      sslRequired: 'external'
+      clientId: 'heroes'
     },
     initOptions: {
       onLoad: 'login-required',
-      checkLoginIframe: false,
-      promiseType: 'native'
+      checkLoginIframe: false
     },
     enableBearerInterceptor: true,
     loadUserProfileAtStartUp: true,

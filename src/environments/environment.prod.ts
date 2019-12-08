@@ -5,13 +5,11 @@ export const environment = {
     config: {
       url: 'https://sso.itrunner.org/auth',
       realm: 'heroes',
-      clientId: 'heroes',
-      sslRequired: 'all'
+      clientId: 'heroes'
     },
     initOptions: {
       onLoad: 'login-required',
-      checkLoginIframe: false,
-      promiseType: 'native'
+      checkLoginIframe: false
     },
     enableBearerInterceptor: true,
     loadUserProfileAtStartUp: true,
