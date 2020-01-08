@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import {Hero} from '../hero';
+import {HeroService} from '../hero.service';
+import {Pageable, PageRequest} from '../page';
 
 @Component({
   selector: 'app-heroes',
@@ -10,30 +11,55 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  pageable: Pageable = new PageRequest();
 
-  constructor(private heroService: HeroService) { }
+  totalItems = 0;
+
+  constructor(private heroService: HeroService) {
+  }
 
   ngOnInit() {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes(this.pageable)
+      .subscribe(page => {
+        this.heroes = page.content;
+        this.totalItems = page.totalElements;
+      });
+  }
+
+  pageChanged(event: any): void {
+    console.log('Page changed to: ' + event.pageIndex);
+    this.pageable.page = event.pageIndex - 1;
+    this.pageable.size = event.pageSize;
+    this.getHeroes();
+  }
+
+  sortChanged(sort: { key: string; value: string }): void {
+    this.pageable.sort = sort;
+    this.pageable.page = 0;
+    this.getHeroes();
   }
 
   add(name: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({name} as Hero)
+      .subscribe(() => {
+        this.pageable.page = 0;
+        this.getHeroes();
       });
   }
 
   delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+    this.heroService.deleteHero(hero).subscribe(() => {
+      this.pageable.page = 0;
+      this.getHeroes();
+    });
   }
 
 }

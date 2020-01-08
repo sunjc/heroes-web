@@ -13,6 +13,7 @@ import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 import {HeroesComponent} from './heroes/heroes.component';
 import {HeroSearchComponent} from './hero-search/hero-search.component';
 import {MessagesComponent} from './messages/messages.component';
+import {PaginationComponent} from './pagination/pagination.component';
 import {HasRoleDirective} from './has-role.directive';
 import {KeycloakBearerInterceptor} from './keycloak-bearer.interceptor';
 import {KeycloakService} from './keycloak.service';
@@ -50,6 +51,7 @@ registerLocaleData(en);
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
+    PaginationComponent,
     HasRoleDirective
   ],
   providers: [

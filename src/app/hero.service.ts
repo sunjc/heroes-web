@@ -8,6 +8,7 @@ import {Hero} from './hero';
 import {MessageService} from './message.service';
 
 import {environment} from '../environments/environment';
+import {EMPTY_PAGE, Page, Pageable, pageParams} from './page';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -24,11 +25,11 @@ export class HeroService {
   }
 
   /** GET heroes from the server */
-  getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+  getHeroes(pageable: Pageable): Observable<Page<Hero>> {
+    return this.http.get<Page<Hero>>(this.heroesUrl, {params: pageParams(null, pageable)})
       .pipe(
         tap(() => this.log('fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes', []))
+        catchError(this.handleError<Page<Hero>>('getHeroes', EMPTY_PAGE))
       );
   }
 
