@@ -18,6 +18,7 @@ import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
+import {PaginationComponent} from './pagination/pagination.component';
 
 registerLocaleData(en);
 
@@ -38,6 +39,7 @@ registerLocaleData(en);
     MessagesComponent,
     HeroSearchComponent,
     LoginComponent,
+    PaginationComponent,
     HasRoleDirective
   ],
   providers: [

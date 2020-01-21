@@ -1,0 +1,8 @@
+<div style="float: right;">
+  <nz-pagination [nzTotal]="total" [(nzPageIndex)]="pageIndex" (nzPageIndexChange)="indexChange($event)" [(nzPageSize)]="pageSize" [nzPageSizeOptions]="pageSizeOptions"
+                 (nzPageSizeChange)="sizeChange($event)" nzSize="small" nzShowSizeChanger [nzShowTotal]="totalTemplate">
+  </nz-pagination>
+  <ng-template #totalTemplate let-total>
+    Total {{total}} heroes
+  </ng-template>
+</div>

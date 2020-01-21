@@ -11,11 +11,27 @@
   </button>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button *appHasRole="'ADMIN'" class="delete" i18n-title="@@deleteHero" title="delete hero" (click)="delete(hero)">x</button>
-  </li>
-</ul>
+<div class="heroes">
+  <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false" nzSize="small">
+    <thead (nzSortChange)="sortChanged($event)" nzSingleSort>
+    <tr>
+      <th>No</th>
+      <th nzShowSort nzSortKey="name">Name</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let hero of heroesTable.data; let i = index">
+      <td><span class="badge">{{i + 1}}</span></td>
+      <td>
+        <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+      </td>
+      <td>
+        <button *appHasRole="'ADMIN'" class="delete" i18n-title="@@deleteHero" title="delete hero" (click)="delete(hero)">x</button>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+  <app-pagination [total]="totalItems" [pageIndex]="pageable.page + 1" (pageChange)="pageChanged($event)"></app-pagination>
+</div>
