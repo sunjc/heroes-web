@@ -20,13 +20,14 @@ export class AppComponent {
   constructor(@Inject(LOCALE_ID) private localeId: string, private i18n: NzI18nService, private titleService: Title) {
     if (localeId === 'en-US') {
       this.selectedLanguage = 'en';
+      this.title = 'Tour of Heroes';
       this.i18n.setLocale(en_US);
-      this.titleService.setTitle('Tour of Heroes');
     } else {
       this.selectedLanguage = 'zh';
+      this.title = '英雄之旅';
       this.i18n.setLocale(zh_CN);
-      this.titleService.setTitle('英雄之旅');
     }
+    this.titleService.setTitle(this.title);
   }
 
   switchLanguage() {
