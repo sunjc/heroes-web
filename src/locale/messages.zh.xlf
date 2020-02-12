@@ -7,7 +7,7 @@
         <target>登录</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
@@ -23,7 +23,7 @@
         <target>仪表盘</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="heroes" datatype="html">
@@ -31,7 +31,7 @@
         <target>英雄</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="topHeroes" datatype="html">
@@ -66,12 +66,36 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>序号</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="name2" datatype="html">
+        <source>Name</source>
+        <target>名字</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>删除</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="deleteHero" datatype="html">
         <source>delete hero</source>
         <target>删除英雄</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detail" datatype="html">
@@ -79,7 +103,7 @@
         <target>详情</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="name" datatype="html">
@@ -87,7 +111,7 @@
         <target>名字：</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="namePlaceholder" datatype="html">
@@ -95,7 +119,7 @@
         <target>名字</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="back" datatype="html">
@@ -176,6 +200,22 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
           <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="total" datatype="html">
+        <source>Total</source>
+        <target>共</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pagination/pagination.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="items" datatype="html">
+        <source>items</source>
+        <target>条</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pagination/pagination.component.html</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
     </body>

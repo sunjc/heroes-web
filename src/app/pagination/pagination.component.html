@@ -3,6 +3,6 @@
                  (nzPageSizeChange)="sizeChange($event)" nzSize="small" nzShowSizeChanger [nzShowTotal]="totalTemplate">
   </nz-pagination>
   <ng-template #totalTemplate let-total>
-    Total {{total}} heroes
+    <ng-container i18n="@@total">Total</ng-container> {{total}} <ng-container i18n="@@items">items</ng-container>
   </ng-template>
 </div>
