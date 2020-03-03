@@ -32,14 +32,14 @@ export class HeroesComponent implements OnInit {
 
   pageChanged(event: any): void {
     console.log('Page changed to: ' + event.pageIndex);
-    this.pageable.page = event.pageIndex - 1;
+    this.pageable.page = event.pageIndex;
     this.pageable.size = event.pageSize;
     this.getHeroes();
   }
 
   sortChanged(sort: { key: string; value: string }): void {
     this.pageable.sort = sort;
-    this.pageable.page = 0;
+    this.pageable.page = 1;
     this.getHeroes();
   }
 
@@ -50,14 +50,14 @@ export class HeroesComponent implements OnInit {
     }
     this.heroService.addHero({name} as Hero)
       .subscribe(() => {
-        this.pageable.page = 0;
+        this.pageable.page = 1;
         this.getHeroes();
       });
   }
 
   delete(hero: Hero): void {
     this.heroService.deleteHero(hero).subscribe(() => {
-      this.pageable.page = 0;
+      this.pageable.page = 1;
       this.getHeroes();
     });
   }
