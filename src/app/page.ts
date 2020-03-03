@@ -17,14 +17,14 @@ export interface Pageable {
 }
 
 export class PageRequest implements Pageable {
-  page = 0;
+  page = 1;
   size = DEFAULT_PAGE_SIZE;
   sort?: { key: string; value: string };
 }
 
 export function pageParams<T>(query?: T, pageable?: Pageable): HttpParams {
   let params = new HttpParams()
-    .set('page', pageable ? pageable.page.toString() : '0')
+    .set('page', pageable ? (pageable.page - 1).toString() : '0')
     .set('size', pageable ? pageable.size.toString() : DEFAULT_PAGE_SIZE.toString());
 
   if (pageable && pageable.sort) {
