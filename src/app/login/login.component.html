@@ -1,17 +1,15 @@
-<h2 i18n="@@login">Login</h2>
-
-<form nz-form #loginForm="ngForm" class="login-form">
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
     <nz-form-control i18n-nzErrorTip="@@usernameErrorTip" nzErrorTip="Please input your username!">
       <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input [(ngModel)]="model.username" id="username" name="userName" i18n-placeholder="@@usernamePlaceholder" placeholder="Username" required/>
+        <input type="text" nz-input formControlName="username" i18n-placeholder="@@usernamePlaceholder" placeholder="Username"/>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control i18n-nzErrorTip="@@passwordErrorTip" nzErrorTip="Please input your Password!">
       <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input [(ngModel)]="model.password" id="password" name="password" i18n-placeholder="@@passwordPlaceholder" placeholder="Password" required/>
+        <input type="password" nz-input formControlName="password" i18n-placeholder="@@passwordPlaceholder" placeholder="Password"/>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
@@ -20,7 +18,13 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-control>
-      <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="loginForm.invalid" (click)="login()" i18n="@@login">Login</button>
+      <label nz-checkbox formControlName="remember">
+        <span i18n="@@remember">Remember me</span>
+      </label>
+      <a class="login-form-forgot" class="login-form-forgot" i18n="@@forgotPassword">Forgot password</a>
+      <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="!validateForm.valid" i18n="@@login">Log in</button>
+      <ng-container i18n="@@or">Or </ng-container>
+      <a i18n="@@register">register now!</a>
     </nz-form-control>
   </nz-form-item>
 </form>
