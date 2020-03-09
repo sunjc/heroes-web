@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
+import {en_US, NgZorroAntdModule, NZ_CONFIG, NZ_I18N, NzConfig} from 'ng-zorro-antd';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -35,6 +35,10 @@ export function initKeycloak(keycloak: KeycloakService): () => Promise<any> {
 
 registerLocaleData(en);
 
+const ngZorroConfig: NzConfig = {
+  table: {nzSize: 'small', nzBordered: true},
+};
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ registerLocaleData(en);
     [
       {provide: APP_INITIALIZER, useFactory: initKeycloak, deps: [KeycloakService], multi: true},
       {provide: HTTP_INTERCEPTORS, useClass: KeycloakBearerInterceptor, multi: true},
-      {provide: NZ_I18N, useValue: en_US}
+      {provide: NZ_I18N, useValue: en_US},
+      {provide: NZ_CONFIG, useValue: ngZorroConfig}
     ]
   ],
   bootstrap: [AppComponent]
