@@ -1,12 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AuthenticationService} from './authentication.service';
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
 
+  constructor(private authenticationService: AuthenticationService) {
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const idToken = this.getToken();
+    const idToken = this.authenticationService.getToken();
 
     if (idToken) {
       const cloned = req.clone({
@@ -17,10 +21,5 @@ export class AuthenticationInterceptor implements HttpInterceptor {
     } else {
       return next.handle(req);
     }
-  }
-
-  getToken(): string {
-    const userStr = localStorage.getItem('currentUser');
-    return userStr ? JSON.parse(userStr).token : '';
   }
 }
