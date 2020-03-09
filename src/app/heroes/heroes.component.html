@@ -12,7 +12,7 @@
 </div>
 
 <div class="heroes">
-  <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false" nzSize="small">
+  <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false">
     <thead (nzSortChange)="sortChanged($event)" nzSingleSort>
     <tr>
       <th i18n="@@no">No</th>

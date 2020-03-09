@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular.io-example": {
+    "angular-io-example": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -47,7 +47,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -78,7 +77,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -90,7 +88,6 @@
               "i18nMissingTranslation": "error"
             },
             "zh": {
-              "aot": true,
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",
@@ -101,21 +98,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular.io-example:build"
+            "browserTarget": "angular-io-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular.io-example:build:production"
+              "browserTarget": "angular-io-example:build:production"
             },
             "zh": {
-              "browserTarget": "angular.io-example:build:zh"
+              "browserTarget": "angular-io-example:build:zh"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular.io-example:build"
+            "browserTarget": "angular-io-example:build"
           }
         },
         "test": {
@@ -127,15 +124,10 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/theme.less",
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -158,16 +150,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular.io-example:serve"
+            "devServerTarget": "angular-io-example:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular.io-example:serve:production"
+              "devServerTarget": "angular-io-example:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular.io-example"
+  "defaultProject": "angular-io-example",
+  "cli": {
+    "analytics": false
+  }
 }
