@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         if (result) {
           // login successful
           this.loading = true;
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['']);
         } else {
           // login failed
           this.log('Username or password is incorrect');
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
     this.authenticationService.logout();
 
     this.validateForm = this.fb.group({
-      username: [null, Validators.required],
-      password: [null, Validators.required],
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]],
       remember: [true]
     });
   }
