@@ -5,14 +5,14 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HeroesComponent} from './heroes/heroes.component';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 import {LoginComponent} from './login/login.component';
-import {CanActivateAuthGuard} from './can-activate.authguard';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateAuthGuard]},
-  {path: 'detail/:id', component: HeroDetailComponent, canActivate: [CanActivateAuthGuard]},
-  {path: 'heroes', component: HeroesComponent, canActivate: [CanActivateAuthGuard]}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard]},
+  {path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
