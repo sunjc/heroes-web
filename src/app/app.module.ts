@@ -14,13 +14,17 @@ import {MessagesComponent} from './messages/messages.component';
 import {LoginComponent} from './login/login.component';
 import {AuthenticationInterceptor} from './authentication.interceptor';
 import {HasRoleDirective} from './has-role.directive';
-import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
+import {en_US, NgZorroAntdModule, NZ_CONFIG, NZ_I18N, NzConfig} from 'ng-zorro-antd';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {PaginationComponent} from './pagination/pagination.component';
 
 registerLocaleData(en);
+
+const ngZorroConfig: NzConfig = {
+  table: {nzSize: 'small', nzBordered: true},
+};
 
 @NgModule({
   imports: [
@@ -46,7 +50,8 @@ registerLocaleData(en);
   providers: [
     [
       {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true},
-      {provide: NZ_I18N, useValue: en_US}
+      {provide: NZ_I18N, useValue: en_US},
+      {provide: NZ_CONFIG, useValue: ngZorroConfig}
     ]
   ],
   bootstrap: [AppComponent]
