@@ -20,7 +20,7 @@ export class AuthenticationService {
       tap(response => {
         if (response && response.token) {
           // login successful, store username and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify({username: name, token: response.token, tokenParsed: this.decodeToken(response.token)}));
+          sessionStorage.setItem('currentUser', JSON.stringify({username: name, token: response.token, tokenParsed: this.decodeToken(response.token)}));
           return of(true);
         } else {
           return of(false);
@@ -34,7 +34,7 @@ export class AuthenticationService {
   }
 
   getCurrentUser(): any {
-    const userStr = localStorage.getItem('currentUser');
+    const userStr = sessionStorage.getItem('currentUser');
     return userStr ? JSON.parse(userStr) : '';
   }
 
@@ -49,7 +49,7 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
   }
 
   isLoggedIn(): boolean {
