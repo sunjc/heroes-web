@@ -1,6 +1,6 @@
 # Tour of Heroes
 
-This code is used in the blog "[Integrating Angular 8 with Spring Boot 2](http://blog.51cto.com/7308310/2072364)"
+This code is used in the blog "[Integrating Angular 9 with Spring Boot 2](http://blog.51cto.com/7308310/2072364)"
 
 ## Development server
 
