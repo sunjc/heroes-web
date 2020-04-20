@@ -3,7 +3,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {en_US, NgZorroAntdModule, NZ_CONFIG, NZ_I18N, NzConfig} from 'ng-zorro-antd';
+import {en_US, NZ_CONFIG, NZ_I18N, NzButtonModule, NzConfig, NzFormModule, NzInputModule, NzPaginationModule, NzRadioModule, NzTableModule} from 'ng-zorro-antd';
 
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -33,8 +33,13 @@ const ngZorroConfig: NzConfig = {
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgZorroAntdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    NzTableModule,
+    NzPaginationModule,
+    NzRadioModule
   ],
   declarations: [
     AppComponent,
