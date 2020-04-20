@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import {en_US, NgZorroAntdModule, NZ_CONFIG, NZ_I18N, NzConfig} from 'ng-zorro-antd';
+import {en_US, NZ_CONFIG, NZ_I18N, NzConfig, NzGridModule, NzPaginationModule, NzRadioModule, NzTableModule} from 'ng-zorro-antd';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -45,8 +45,11 @@ const ngZorroConfig: NzConfig = {
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgZorroAntdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzGridModule,
+    NzTableModule,
+    NzPaginationModule,
+    NzRadioModule
   ],
   declarations: [
     AppComponent,

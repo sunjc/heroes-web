@@ -13,10 +13,10 @@
 
 <div class="heroes">
   <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false">
-    <thead (nzSortChange)="sortChanged($event)" nzSingleSort>
+    <thead (nzSortOrderChange)="sortChanged($event)">
     <tr>
       <th i18n="@@no">No</th>
-      <th nzShowSort nzSortKey="name" i18n="@@name2">Name</th>
+      <th [nzSortFn]="true" [nzSortDirections]="['ascend', 'descend']" nzColumnKey="name" i18n="@@name2">Name</th>
       <th i18n="@@delete">Delete</th>
     </tr>
     </thead>
