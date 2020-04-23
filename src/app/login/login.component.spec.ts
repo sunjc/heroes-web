@@ -1,10 +1,21 @@
 import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
-import {LoginComponent} from './login.component';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AuthenticationService} from '../authentication.service';
+import {
+  NzButtonModule,
+  NzCheckboxModule,
+  NzFormModule,
+  NzIconModule,
+  NzInputDirective,
+  NzInputGroupComponent,
+  NzInputGroupSlotComponent,
+  NzOutletModule
+} from 'ng-zorro-antd';
 import {of} from 'rxjs/internal/observable/of';
+import {LoginComponent} from './login.component';
+import {AuthenticationService} from '../authentication.service';
 import {MessageService} from '../message.service';
-import {FormBuilder} from '@angular/forms';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,8 +26,20 @@ describe('LoginComponent', () => {
     authenticationService = jasmine.createSpyObj('AuthenticationService', ['login', 'logout']);
     authenticationService.login.and.returnValue(of(true));
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
+      declarations: [
+        LoginComponent,
+        NzInputGroupComponent,
+        NzInputGroupSlotComponent,
+        NzInputDirective
+      ],
       imports: [
+        ReactiveFormsModule,
+        NzFormModule,
+        NzCheckboxModule,
+        NzButtonModule,
+        NzOutletModule,
+        NzIconModule,
+        HttpClientTestingModule,
         RouterTestingModule.withRoutes([])
       ],
       providers: [
