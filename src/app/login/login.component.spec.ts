@@ -7,9 +7,7 @@ import {
   NzCheckboxModule,
   NzFormModule,
   NzIconModule,
-  NzInputDirective,
-  NzInputGroupComponent,
-  NzInputGroupSlotComponent,
+  NzInputModule,
   NzOutletModule
 } from 'ng-zorro-antd';
 import {of} from 'rxjs/internal/observable/of';
@@ -27,18 +25,16 @@ describe('LoginComponent', () => {
     authenticationService.login.and.returnValue(of(true));
     TestBed.configureTestingModule({
       declarations: [
-        LoginComponent,
-        NzInputGroupComponent,
-        NzInputGroupSlotComponent,
-        NzInputDirective
+        LoginComponent
       ],
       imports: [
         ReactiveFormsModule,
-        NzFormModule,
-        NzCheckboxModule,
         NzButtonModule,
-        NzOutletModule,
+        NzCheckboxModule,
+        NzFormModule,
         NzIconModule,
+        NzInputModule,
+        NzOutletModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([])
       ],
