@@ -3,12 +3,12 @@
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the jwt-1.0.0 branch
+# events but only for the master branch
 on:
   push:
-    branches: [ jwt-1.0.0 ]
+    branches: [ master ]
   pull_request:
-    branches: [ jwt-1.0.0 ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,4 +30,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm test --watch=false --progress=false --browsers=ChromeHeadlessCI
+      - run: npm run test_ci
