@@ -157,6 +157,10 @@
               "devServerTarget": "angular-io-example:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
