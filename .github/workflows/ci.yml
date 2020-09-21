@@ -25,9 +25,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Install nodejs
       - name: Setup node
         uses: actions/setup-node@v2.1.1
         with:
           node-version: ${{ matrix.node }}
+          
+      # Cache node modules
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
       - run: npm ci
       - run: npm run test_ci
