@@ -7,6 +7,7 @@
     "build": "ng build --prod",
     "start": "ng serve",
     "test": "ng test",
+    "test_ci": "ng test --watch=false --progress=false --browsers=ChromeHeadlessCI",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
     "extract": "ng xi18n --output-path=locale"

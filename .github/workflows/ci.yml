@@ -30,4 +30,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: ng test --watch=false --progress=false --browsers=ChromeHeadlessCI
+      - run: npm test_ci
