@@ -63,7 +63,7 @@
                 }
               ],
               "outputPath": "dist/en/",
-              "baseHref": "/en/"
+              "baseHref": "/heroes-web/en/"
             },
             "production-zh": {
               "fileReplacements": [
@@ -81,7 +81,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "outputPath": "dist/zh/",
-              "baseHref": "/zh/",
+              "baseHref": "/heroes-web/zh/",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",
@@ -160,13 +160,13 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "name": "Sun Jingchuan",
+            "email": "sjc-925@163.com"
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-io-example",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "angular-io-example"
 }
