@@ -3,21 +3,16 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  en_US,
-  NZ_CONFIG,
-  NZ_I18N,
-  NzButtonModule,
-  NzCheckboxModule,
-  NzConfig,
-  NzFormModule,
-  NzGridModule,
-  NzInputModule,
-  NzPaginationModule,
-  NzRadioModule,
-  NzTableModule
-} from 'ng-zorro-antd';
-
+import {NZ_I18N, en_US} from 'ng-zorro-antd/i18n';
+import {NzConfig, NZ_CONFIG} from 'ng-zorro-antd/core/config';
+import {NzButtonModule} from 'ng-zorro-antd/button';
+import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
+import {NzFormModule} from 'ng-zorro-antd/form';
+import {NzGridModule} from 'ng-zorro-antd/grid';
+import {NzInputModule} from 'ng-zorro-antd/input';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {NzRadioModule} from 'ng-zorro-antd/radio';
+import {NzTableModule} from 'ng-zorro-antd/table';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 
