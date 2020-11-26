@@ -1,5 +1,5 @@
 import {Component, Inject, LOCALE_ID} from '@angular/core';
-import {en_US, NzI18nService, zh_CN} from 'ng-zorro-antd';
+import {en_US, NzI18nService, zh_CN} from 'ng-zorro-antd/i18n';
 import {Title} from '@angular/platform-browser';
 
 @Component({

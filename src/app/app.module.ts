@@ -1,11 +1,17 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
+import {NZ_CONFIG, NzConfig} from 'ng-zorro-antd/core/config';
+import {NzGridModule} from 'ng-zorro-antd/grid';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {NzRadioModule} from 'ng-zorro-antd/radio';
+import {NzTableModule} from 'ng-zorro-antd/table';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import {en_US, NZ_CONFIG, NZ_I18N, NzConfig, NzGridModule, NzPaginationModule, NzRadioModule, NzTableModule} from 'ng-zorro-antd';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';

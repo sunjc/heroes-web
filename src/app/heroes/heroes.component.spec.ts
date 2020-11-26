@@ -1,7 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {NzPaginationModule, NzTableModule} from 'ng-zorro-antd';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {NzTableModule} from 'ng-zorro-antd/table';
 import {HeroesComponent} from './heroes.component';
 import {HasRoleDirective} from '../has-role.directive';
 import {PaginationComponent} from '../pagination/pagination.component';
@@ -12,7 +13,7 @@ describe('HeroesComponent', () => {
   let fixture: ComponentFixture<HeroesComponent>;
   let keycloakService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     keycloakService = jasmine.createSpyObj('KeycloakService', ['hasRole']);
     keycloakService.hasRole.and.returnValue(true);
 
