@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {DashboardComponent} from './dashboard.component';
 import {HeroSearchComponent} from '../hero-search/hero-search.component';
@@ -14,7 +14,7 @@ describe('DashboardComponent', () => {
   let heroService;
   let getHeroesSpy;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     heroService = jasmine.createSpyObj('HeroService', ['getHeroes']);
     getHeroesSpy = heroService.getHeroes.and.returnValue(of({content: HEROES.slice(1, 5), totalElements: 10}));
     TestBed.configureTestingModule({
@@ -47,11 +47,11 @@ describe('DashboardComponent', () => {
     expect(fixture.nativeElement.querySelector('h3').textContent).toEqual('Top Heroes');
   });
 
-  it('should call heroService', async(() => {
+  it('should call heroService', waitForAsync(() => {
     expect(getHeroesSpy.calls.any()).toBe(true);
   }));
 
-  it('should display 4 links', async(() => {
+  it('should display 4 links', waitForAsync(() => {
     expect(fixture.nativeElement.querySelectorAll('a').length).toEqual(4);
   }));
 
