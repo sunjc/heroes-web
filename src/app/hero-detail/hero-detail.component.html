@@ -2,10 +2,10 @@
   <h2>{{hero.name | uppercase}}
     <ng-container i18n="@@detail">Details</ng-container>
   </h2>
-  <div><label>ID: </label> {{hero.id}}</div>
+  <div><span>ID: </span>{{hero.id}}</div>
   <div>
-    <label i18n="@@name">name:</label>
-    <input [(ngModel)]="hero.name" i18n-placeholder="@@namePlaceholder" placeholder="name"/>
+    <label for="hero-name" i18n="@@name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" i18n-placeholder="@@namePlaceholder" placeholder="Hero name"/>
   </div>
   <button (click)="goBack()" i18n="@@back">go back</button>
   <button *appHasRole="'ADMIN'" (click)="save()" i18n="@@save">save</button>

@@ -11,8 +11,8 @@ import {User} from '../user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User;
-  validateForm: FormGroup;
+  user!: User;
+  validateForm!: FormGroup;
   loading = false;
 
   constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,

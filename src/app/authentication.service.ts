@@ -20,7 +20,11 @@ export class AuthenticationService {
       tap(response => {
         if (response && response.token) {
           // login successful, store username and jwt token in local storage to keep user logged in between page refreshes
-          sessionStorage.setItem('currentUser', JSON.stringify({username: name, token: response.token, tokenParsed: this.decodeToken(response.token)}));
+          sessionStorage.setItem('currentUser', JSON.stringify({
+            username: name,
+            token: response.token,
+            tokenParsed: this.decodeToken(response.token)
+          }));
           return of(true);
         } else {
           return of(false);
@@ -54,7 +58,7 @@ export class AuthenticationService {
 
   isLoggedIn(): boolean {
     const token: string = this.getToken();
-    return token && token.length > 0;
+    return token !== '';
   }
 
   hasRole(role: string): boolean {

@@ -10,7 +10,7 @@ import {Pageable, PageRequest} from '../page';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  pageable: Pageable;
+  pageable!: Pageable;
 
   constructor(private heroService: HeroService) {
   }

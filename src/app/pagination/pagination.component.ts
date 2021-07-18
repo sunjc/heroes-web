@@ -8,10 +8,10 @@ import {DEFAULT_PAGE_SIZE} from '../page';
 
 export class PaginationComponent {
   @Input()
-  total: number;
+  total!: number;
 
   @Input()
-  pageIndex: number;
+  pageIndex!: number;
 
   @Input()
   pageSize = DEFAULT_PAGE_SIZE;

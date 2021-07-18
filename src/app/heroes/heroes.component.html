@@ -1,23 +1,22 @@
 <h2 i18n="@@myHeroes">My Heroes</h2>
 
 <div *appHasRole="'ADMIN'">
-  <label>
-    <ng-container i18n="@@heroName">Hero name:</ng-container>
-    <input #heroName/>
-  </label>
+  <label for="new-hero" i18n="@@heroName">Hero name: </label>
+  <input id="new-hero" #heroName />
+
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''" i18n="@@add">
-    add
+  <button class="add-button" (click)="add(heroName.value); heroName.value=''" i18n="@@add">
+    Add hero
   </button>
 </div>
 
 <div class="heroes">
-  <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false">
-    <thead (nzSortOrderChange)="sortChanged($event)">
+  <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false" nzSize="small">
+    <thead>
     <tr>
-      <th i18n="@@no">No</th>
+      <th nzWidth="25px" i18n="@@no">No</th>
       <th [nzSortFn]="true" [nzSortDirections]="['ascend', 'descend']" nzColumnKey="name" i18n="@@name2">Name</th>
-      <th i18n="@@delete">Delete</th>
+      <th nzWidth="80px" i18n="@@delete">Delete</th>
     </tr>
     </thead>
 

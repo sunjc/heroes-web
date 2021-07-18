@@ -33,7 +33,7 @@ export function pageParams<T>(query?: T, pageable?: Pageable): HttpParams {
 
   if (query) {
     Object.keys(query).forEach(key => {
-      let value = query[key];
+      let value = (query as any)[key];
       if (value === '') {
         return;
       }

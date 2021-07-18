@@ -10,7 +10,7 @@ import {Pageable, PageRequest} from '../page';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes: Hero[] = [];
   pageable: Pageable = new PageRequest();
 
   totalItems = 0;
@@ -37,7 +37,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  sortChanged(sort: { key: string; value: string }): void {
+  sortChanged(sort: { key: any; value: string }): void {
     this.pageable.sort = sort;
     this.pageable.page = 1;
     this.getHeroes();
