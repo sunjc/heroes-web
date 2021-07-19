@@ -1,6 +1,5 @@
 /* HeroesComponent's private CSS styles */
 .heroes {
-  margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 30em;
@@ -55,14 +54,13 @@ input {
   height: 1.8em;
   min-width: 16px;
   text-align: right;
-  margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
 
 .add-button {
  padding: .5rem 1.5rem;
  font-size: 1rem;
- margin-bottom: 2rem;
+ margin-bottom: 1rem;
 }
 
 .add-button:hover {

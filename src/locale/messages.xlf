@@ -34,57 +34,6 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="myHeroes" datatype="html">
-        <source>My Heroes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="heroName" datatype="html">
-        <source>Hero name:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="add" datatype="html">
-        <source>
-    add
-  </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="no" datatype="html">
-        <source>No</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="name2" datatype="html">
-        <source>Name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="delete" datatype="html">
-        <source>Delete</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="deleteHero" datatype="html">
-        <source>delete hero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="detail" datatype="html">
         <source>Details</source>
         <context-group purpose="location">
@@ -93,14 +42,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="name" datatype="html">
-        <source>name:</source>
+        <source>Hero name: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="namePlaceholder" datatype="html">
-        <source>name</source>
+        <source>Hero name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
           <context context-type="linenumber">8</context>
@@ -120,32 +69,60 @@
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="message" datatype="html">
-        <source>Messages</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="clear" datatype="html">
-        <source>clear</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="heroSearch" datatype="html">
         <source>Hero Search</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/hero-search/hero-search.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">2,3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="usernamePlaceholder" datatype="html">
-        <source>Username</source>
+      <trans-unit id="myHeroes" datatype="html">
+        <source>My Heroes</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroName" datatype="html">
+        <source>Hero name: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="add" datatype="html">
+        <source> Add hero </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="name2" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteHero" datatype="html">
+        <source>delete hero</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="usernameErrorTip" datatype="html">
@@ -155,11 +132,11 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="passwordPlaceholder" datatype="html">
-        <source>Password</source>
+      <trans-unit id="usernamePlaceholder" datatype="html">
+        <source>Username</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="passwordErrorTip" datatype="html">
@@ -167,6 +144,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="passwordPlaceholder" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loginTip" datatype="html">
@@ -202,6 +186,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
           <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="message" datatype="html">
+        <source>Messages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="clear" datatype="html">
+        <source>Clear messages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="total" datatype="html">
