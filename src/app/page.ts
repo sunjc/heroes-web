@@ -13,13 +13,13 @@ export interface Page<T> {
 export interface Pageable {
   page: number;
   size: number;
-  sort?: { key: string; value: string };
+  sort?: { key: string; value: string | null };
 }
 
 export class PageRequest implements Pageable {
   page = 1;
   size = DEFAULT_PAGE_SIZE;
-  sort?: { key: string; value: string };
+  sort?: { key: string; value: string | null };
 }
 
 export function pageParams<T>(query?: T, pageable?: Pageable): HttpParams {

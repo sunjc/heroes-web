@@ -12,7 +12,7 @@
 
 <div class="heroes">
   <nz-table #heroesTable [nzData]="heroes" nzFrontPagination="false" nzShowPagination="false" nzSize="small">
-    <thead>
+    <thead (nzSortOrderChange)="sortChanged($event)">
     <tr>
       <th nzWidth="25px" i18n="@@no">No</th>
       <th [nzSortFn]="true" [nzSortDirections]="['ascend', 'descend']" nzColumnKey="name" i18n="@@name2">Name</th>

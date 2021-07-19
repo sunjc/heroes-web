@@ -37,7 +37,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  sortChanged(sort: { key: any; value: string }): void {
+  sortChanged(sort: { key: any; value: string | null }): void {
     this.pageable.sort = sort;
     this.pageable.page = 1;
     this.getHeroes();
