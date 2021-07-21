@@ -26,8 +26,6 @@ input {
   color: #333;
   text-decoration: none;
   background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
   height: 1.6em;
   border-radius: 4px;
   display: block;
@@ -48,8 +46,8 @@ input {
   display: inline-block;
   font-size: small;
   color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
+  padding: 0.5em;
+  background-color: #405061;
   line-height: 1em;
   height: 1.8em;
   min-width: 16px;
@@ -58,9 +56,9 @@ input {
 }
 
 .add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 1rem;
+  padding: .5rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .add-button:hover {
@@ -70,7 +68,7 @@ input {
 
 button.delete {
   background-color: white;
-  color:  #525252;
+  color: #525252;
   font-size: 1.1rem;
   padding: 2px;
 }
