@@ -53,11 +53,6 @@
             "namedChunks": true
           },
           "configurations": {
-            "zh": {
-              "localize": [
-                "zh"
-              ]
-            },
             "production": {
               "fileReplacements": [
                 {
@@ -92,6 +87,11 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "zh": {
+              "localize": [
+                "zh"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -107,6 +107,9 @@
             },
             "development": {
               "browserTarget": "angular-io-example:build:development"
+            },
+            "zh": {
+              "browserTarget": "angular-io-example:build:zh"
             }
           },
           "defaultConfiguration": "development"
