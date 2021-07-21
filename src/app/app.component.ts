@@ -13,13 +13,13 @@ export class AppComponent {
   currentDate: Date = new Date();
 
   supportLanguages = [
-    {code: 'en', label: 'English'},
+    {code: 'en-US', label: 'English'},
     {code: 'zh', label: '中文'}
   ];
 
   constructor(@Inject(LOCALE_ID) private localeId: string, private i18n: NzI18nService, private titleService: Title) {
     if (localeId === 'en-US') {
-      this.selectedLanguage = 'en';
+      this.selectedLanguage = 'en-US';
       this.title = 'Tour of Heroes';
       this.i18n.setLocale(en_US);
     } else {
