@@ -13,15 +13,6 @@ input {
   box-sizing: border-box;
 }
 
-.heroes li {
-  position: relative;
-  cursor: pointer;
-}
-
-.heroes li:hover {
-  left: .1em;
-}
-
 .heroes a {
   color: #333;
   text-decoration: none;
